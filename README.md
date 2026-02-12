@@ -85,6 +85,15 @@ ls /dev/ttyACM*          # Linux
 idf.py -p PORT flash monitor
 ```
 
+> **Important: Plug into the correct USB port!** Most ESP32-S3 boards have two USB-C ports. You must use the one labeled **USB** (native USB Serial/JTAG), **not** the one labeled **COM** (external UART bridge). Plugging into the wrong port will cause flash/monitor failures.
+>
+> <details>
+> <summary>Show reference photo</summary>
+>
+> <img src="assets/esp32s3-usb-port.jpg" alt="Plug into the USB port, not COM" width="480" />
+>
+> </details>
+
 ### CLI Commands
 
 Connect via serial to configure or debug. **Config commands** let you change settings without recompiling — just plug in a USB cable anywhere.

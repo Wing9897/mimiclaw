@@ -85,6 +85,15 @@ ls /dev/ttyACM*          # Linux
 idf.py -p PORT flash monitor
 ```
 
+> **注意：请插对 USB 口！** 大多数 ESP32-S3 开发板有两个 Type-C 接口，必须插标有 **USB** 的那个口（原生 USB Serial/JTAG），**不要**插标有 **COM** 的口（外部 UART 桥接）。插错口会导致烧录/监控失败。
+>
+> <details>
+> <summary>查看参考图片</summary>
+>
+> <img src="assets/esp32s3-usb-port.jpg" alt="请插 USB 口，不要插 COM 口" width="480" />
+>
+> </details>
+
 ### 代理配置（国内用户）
 
 在国内需要代理才能访问 Telegram 和 Anthropic API。MimiClaw 内置 HTTP CONNECT 隧道支持。
