@@ -100,6 +100,33 @@
 #define MIMI_NVS_PROXY               "proxy_config"
 #define MIMI_NVS_SEARCH              "search_config"
 
+
+/* Board Features (default off) */
+#ifndef MIMI_HAS_LCD
+#define MIMI_HAS_LCD            0
+#endif
+#ifndef MIMI_HAS_SDCARD
+#define MIMI_HAS_SDCARD         0
+#endif
+
+/* LCD - Waveshare ESP32-S3-LCD-1.47 (ST7789 172x320) */
+#if MIMI_HAS_LCD
+#define MIMI_LCD_PIN_MOSI       GPIO_NUM_45
+#define MIMI_LCD_PIN_SCLK       GPIO_NUM_40
+#define MIMI_LCD_PIN_CS         GPIO_NUM_42
+#define MIMI_LCD_PIN_DC         GPIO_NUM_41
+#define MIMI_LCD_PIN_RST        GPIO_NUM_39
+#define MIMI_LCD_PIN_BL         GPIO_NUM_48
+#define MIMI_LCD_WIDTH          172
+#define MIMI_LCD_HEIGHT         320
+#define MIMI_LCD_SPI_HOST       SPI2_HOST
+#define MIMI_LCD_SPI_FREQ_HZ   (40 * 1000 * 1000)
+#define MIMI_LCD_BL_ON_LEVEL    1
+#define MIMI_LCD_BTN_PIN        GPIO_NUM_0
+#define MIMI_DISPLAY_STACK      (4 * 1024)
+#define MIMI_DISPLAY_PRIO       3
+#define MIMI_DISPLAY_CORE       0
+#endif
 /* NVS Keys */
 #define MIMI_NVS_KEY_SSID            "ssid"
 #define MIMI_NVS_KEY_PASS            "password"

@@ -21,6 +21,9 @@
 #include "cli/serial_cli.h"
 #include "proxy/http_proxy.h"
 #include "tools/tool_registry.h"
+#if MIMI_HAS_LCD
+#include "display/display.h"
+#endif
 
 static const char *TAG = "mimi";
 
@@ -113,6 +116,11 @@ void app_main(void)
 
     /* Start Serial CLI first (works without WiFi) */
     ESP_ERROR_CHECK(serial_cli_init());
+
+#if MIMI_HAS_LCD
+    ESP_ERROR_CHECK(display_init());
+    ESP_ERROR_CHECK(display_start());
+#endif
 
     /* Start WiFi */
     esp_err_t wifi_err = wifi_manager_start();
